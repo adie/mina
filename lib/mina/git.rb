@@ -53,10 +53,18 @@ namespace :git do
       echo "-----> Using this git commit" &&
       echo &&
       #{echo_cmd %[git --no-pager log --format="%aN (%h):%n> %s" -n 1]} &&
-      #{echo_cmd %[rm -rf .git]} &&
       echo
     ]
 
     queue clone + status
+  end
+
+  # ### git:clean
+  # Removes .git directory from release to save some space.
+
+  desc "Removes .git directory from release to save some space"
+  task :clean do
+    queue %{echo "-----> Removing .git directory"}
+    queue echo_cmd %{rm -rf #{deploy_to}/#{current_path}/.git}
   end
 end

@@ -57,13 +57,13 @@ change it's ownership to the correct user.
 ### Step 3: Run 'mina setup'
 
 Back at your computer, do `mina setup` to set up the [folder 
-structure](#directory-structure) in this path. This will connect to your server 
+structure](#directory_structure) in this path. This will connect to your server 
 via SSH and create the right directories.
 
     $ mina setup
     -----> Creating folders... done.
 
-See [directory structure](#directory-structure) for more info.
+See [directory structure](#directory_structure) for more info.
 
 ### Step 4: Deploy!
 
@@ -364,11 +364,11 @@ report_time do
   # do other things
 end
 # Output:
-# Elapsed time: 2.0 seconds
+# Elapsed time: 2.00 seconds
 ~~~
 
 ### measure
-Measures the time (in ms) a block takes.
+Measures the time (in seconds) a block takes.
 Returns a [time, output] tuple.
 
 ### mina_cleanup
@@ -723,6 +723,8 @@ are removed from the servers."
 ### setup
 Sets up a site's directory structure.
 
+creating shared paths
+
 ### run[]
 Runs a command on a server.
 
@@ -735,7 +737,7 @@ Adds settings and tasks for managing projects with [foreman].
 
 NOTE: Requires sudo privileges
 
-[foreman]: http://theforeman.org/
+[foreman]: http://rubygems.org/ddolar/foreman
 
    require 'mina/foreman'
 
@@ -791,6 +793,9 @@ their own.
 
 ### git:clone
 Clones the Git repository. Meant to be used inside a deploy script.
+
+### git:clean
+Removes .git directory from release to save some space.
 
 # Modules: Rails
 Adds settings and tasks for managing Rails projects.
@@ -962,7 +967,7 @@ end
 ~~~
 
 ### rvm:wrapper[]
-Creates a rvm wrapper for a given executable
+Creates a rvm wrapper for a given executable.
 
 This is usually placed in the `:setup` task.
 
